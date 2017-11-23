@@ -120,7 +120,7 @@ function set_roles () {
       roles  : ['admin'],
       allows : [
         {
-          resources   : '/api/secret',
+          resources   : '/app/secret',
           permissions : '*'
         },
         {
@@ -158,15 +158,20 @@ function set_routes () {
   app.post('/app/status', function (request, response) {
     acl.addUserRoles(request.user.id, "admin");
     console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@', request.user);
-    acl.isAllowed(request.user.id, '/secret', 'get', function (er, res) {
+    acl.isAllowed(request.user.id, '/app/secret', 'get', function (er, res) {
       console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', res, er);
+      acl.userRoles(request.user.id, function (error, roles) {
+        response.send({
+          User  : request.user,
+          Roles : roles,
+          status   : res
+        });
+      });
     });
-    acl.allowedPermissions(request.user.id, '/secret', function (err, permissions) {
-      console.log('##########!!!!!!!!!!!!!!!!!!!!', err, permissions);
-    });
-    acl.userRoles(request.user.id, function (error, roles) {
-      response.send('User: ' + JSON.stringify(request.user) + ' Roles: ' + JSON.stringify(roles));
-    });
+    /* acl.allowedPermissions(request.user.id, '/app/secret', function (err, permissions) {
+     console.log('##########!!!!!!!!!!!!!!!!!!!!', err, permissions);
+     });*/
+
   });
 
   // Only for users and higher

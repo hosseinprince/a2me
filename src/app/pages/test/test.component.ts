@@ -2,26 +2,29 @@ import {Component, OnInit} from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
 
 @Component({
-    selector: 'app-test',
-    templateUrl: './test.component.html',
-    styleUrls: ['./test.component.css']
+  moduleId: module.id,
+  selector: 'app-pages-test',
+  templateUrl: './test.component.html'
 })
 export class TestComponent implements OnInit {
 
-    constructor(private http: Http) {
-    }
+  constructor(private http: Http) {
+  }
 
-    ngOnInit() {
- /*       this.http.post('/api/secret', {u: "sdfsdf", p: "sdfsdf"})
-            .map((response: Response) => response.json())
+  ngOnInit() {
+    console.log('$$$$$$$$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/test');
+    this.http.post('/app/status', {u: "sdfsdf", p: "sdfsdf"})
+      .map((response: Response) => response)
+      .subscribe(res => {
+        console.log('res', res);
+        if (!!res.status) {
+          this.http.post('/app/secret', {u: "sdfsdf", p: "sdfsdf"})
+            .map((response: Response) => response)
             .subscribe(res => {
-                console.log('res', res);
-            });*/
-        this.http.post('/status', {u: "sdfsdf", p: "sdfsdf"})
-            .map((response: Response) => response.json())
-            .subscribe(res => {
-                console.log('res', res);
+              console.log('res', res);
             });
-    }
+        }
+      });
+  }
 
 }

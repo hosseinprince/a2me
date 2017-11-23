@@ -1,19 +1,20 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule }      from '@angular/core';
 
-import {routing} from './test.routing';
-import {FormsModule} from '@angular/forms';
+
+import {CommonModule} from "@angular/common";
 import {TestComponent} from "./test.component";
+import {TestRoute} from "./test.routing";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        routing,
-        FormsModule
-    ],
-    declarations: [
-        TestComponent
-    ]
+  imports: [
+    TestRoute,
+    CommonModule
+  ],
+  declarations: [
+    TestComponent
+  ],
+  providers: [ ],
 })
-export default class TestModule {
+
+export class TestModule {
 }

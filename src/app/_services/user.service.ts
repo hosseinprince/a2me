@@ -24,7 +24,7 @@ export class UserService {
         if (this.globalVar) {
             return this.globalVar;
         }
-        return this.http.get('/app/authentication/getUser', options)
+        return this.http.get('/app/getUser', options)
             .map(function (response: any) {
                 this.globalVar = response;
                 return this.globalVar;

@@ -1,13 +1,20 @@
-import {Routes, RouterModule} from '@angular/router';
+import {NgModule}             from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {TestComponent} from "./test.component";
 
-// noinspection TypeScriptValidateTypes
-const routes: Routes = [
-    {
-        path: '',
-        component: TestComponent,
-        children: []
-    }
-];
 
-export const routing = RouterModule.forChild(routes);
+const routes: Routes = [
+  {
+    path: '',
+    component: TestComponent,
+    children: []
+  }
+];
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+
+export class TestRoute {
+}
+

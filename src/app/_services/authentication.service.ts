@@ -15,11 +15,11 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post('/app/authentication/login', {username: username, password: password})
+    return this.http.post('/app/login', {username: username, password: password})
       .map((response: any) => {
         // login successful if there's a jwt token in the response
-        let status = response.status;
-        if (status === "success") {
+        let status = response.token;
+        if (status) {
           // localStorage.setItem('currentUser', JSON.stringify({username: username, token: status}));
           return true;
         } else {
@@ -30,7 +30,7 @@ export class AuthenticationService {
   }
 
   logout():  Observable<boolean> {
-    return this.http.post('/app/authentication/logout',{})
+    return this.http.post('/app/logout',{})
       .map((response: Response) => {
         this.router.navigate(['/login']);
         return true;
