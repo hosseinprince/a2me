@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="col-md-4">
+    <profile-Common></profile-Common>
+  </div>
+  <div class="col-md-8">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Bordered Table</h3>
+      </div><!-- /.box-header -->
+      <div class="box-body">
+        <table class="table table-bordered">
+          <tr>
+
+            <th>
+              ردیف
+            </th>
+            <th>
+              شناسه
+            </th>
+            <th>
+              نام
+            </th>
+            <th>
+              سوئیفت کد
+            </th>
+            <th class="table_tools">
+              ابزارها
+            </th>
+          </tr>
+          <tr *ngFor="let item of profileItems">
+            <td>1.</td>
+            <td>{{item.id}}</td>
+            <td>
+              {{item.curName}}
+            </td>
+            <td> {{item.swiftCode}}</td>
+            <td><a data-ng-click="vm.removeItem(item)"><img src=""
+                                                            alt="delete icon" class="icon"></a>
+            </td>
+          </tr>
+        </table>
+      </div><!-- /.box-body -->
+    </div><!-- /.box -->
+  </div>
+</div>
+
+<p-dialog header="انتخاب ارز جدید" [(visible)]="display">
+  <section class="dialog_box profile_all_items">
+    <div class="dialog_body padding_box">
+      <button type="button" class="btn submit small_btn" (click)="disableDialog()">
+        بستن
+      </button>
+      <div class="row">
+        <div class="column_6">
+          <div class="custom_dialog_right">
+            <form action="">
+              <ul class="filters_2">
+                <li class="has_postfix">
+                  <input type="text" class="input label_less" ng-model="search"
+                         placeholder="جستجو">
+
+                  <div class="postfix">
+                    <img src="../../../dist/img/search_dark.svg" class="icon">
+                  </div>
+                </li>
+                <li>
+                  <button type="button" class="btn submit small_btn"
+                          data-ng-click="vm.selectAllCurrencies()">
+                    انتخاب همه
+                  </button>
+                  <button type="button" class="btn submit small_btn"
+                          data-ng-click="vm.deselectAllCurrencies()">
+                    هیچکدام
+                  </button>
+                </li>
+              </ul>
+            </form>
+            <div class="table margin_bottom">
+              <table class="table_container">
+                <thead class="table_header">
+
+                <tr>
+
+                  <th>
+                    ردیف
+                  </th>
+                  <th>
+                    شناسه
+                  </th>
+                  <th>
+                    نام
+                  </th>
+                  <th>
+                    سوئیفت کد
+                  </th>
+                </tr>
+                </thead>
+                <tbody class="table_body">
+                <tr class="table_row" data-ng-click="vm.toggleSelectionCurrencies(item)"
+                    *ngFor="let item of currencies"
+                    ng-class="{ 'selected_row': item.selected }">
+                  <td>
+                    <!--{{$index+1}}-->
+                  </td>
+                  <td ng-class="{'filtered': true}">
+                    {{item.id}}
+                  </td>
+                  <td>
+                    {{item.curName}}
+                  </td>
+                  <td>
+                    {{item.swiftCode}}
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="text_left">
+              <button class="btn" (click)="disableDialog()">
+                افزودن انتخاب شده ها
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="column_6">
+          <fieldset class="custom_dialog_left">
+            <legend>انتخاب شده ها</legend>
+            <div class="chips margin_top">
+              <ul>
+                <li *ngFor="let currency of currencies">
+                  {{currency.curName}}
+                  <a href="" class="close">×</a>
+                </li>
+              </ul>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </section>
+</p-dialog>
+

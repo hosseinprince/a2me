@@ -1,0 +1,19 @@
+
+<div class="box-one">
+  <div *ngFor="let profile of profiles" class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div  class="small-box bg-green">
+      <div class="inner">
+        <h4>{{profile.name}}</h4>
+        <p>{{profile.des}} توضیحات : </p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+      <a [routerLink]="['/pages/profile/cur/'+profile.id]" class="small-box-footer">
+        مشاهده
+        <i class="fa fa-arrow-circle-right"></i>
+      </a>
+    </div>
+  </div>
+</div>

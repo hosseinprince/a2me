@@ -1,0 +1,137 @@
+<div class="">
+  <!-- general form elements -->
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">پروفایل</h3>
+    </div><!-- /.box-header -->
+    <!-- form start -->
+      <div class="box-body">
+        <div class="form-group">
+          <label >نام : </label>
+          <input type="text" class="form-control" [(ngModel)]="selectedProfile.name">
+        </div>
+        <div class="form-group">
+          <label >تاریخ ایجاد: </label>
+          <input type="text" class="form-control" [(ngModel)]="selectedProfile.createDate"
+                 disabled>
+        </div>
+      </div><!-- /.box-body -->
+
+      <div class="box-footer">
+        <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+      </div>
+  </div><!-- /.box -->
+</div>
+
+
+<!--
+
+<section class="group_select margin_bottom">
+  <header class="clearfix margin_bottom">
+    <h3 class="margin_bottom">
+      <span class="step_number">1</span>مشخصات
+    </h3>
+  </header>
+  <fieldset>
+    <div class="group_selected_details">
+      <form name="profileEditForm" novalidate>
+        <ul>
+          <li class="clearfix">
+            <label for="name">نام:</label>
+            <input type="text" name="title" class="input" id="name" ng-model="selectedProfile.name"
+                   minlength="4" ng-maxlength="100" disabled required/>
+            <p class="error_message"
+               ng-show="profileEditForm.title.$error.required && !profileEditForm.title.$pristine">
+              نام پروفایل نباید خالی باشد.
+            </p>
+
+            <p class="error_message" ng-show="profileEditForm.title.$error.minlength">
+              نام پروفایل می بایست حداقل 4 حرف باشد.
+            </p>
+
+            <p class="error_message" ng-show="profileEditForm.title.$error.maxlength">
+              نام پروفایل می بایست حداکثر 100 حرف باشد.
+            </p>
+          </li>
+          <li>
+            <label>تعداد آیتم ها:</label>
+
+            <p class="input" id="itemCount">
+            </p>
+
+            <p class="input" ng-show="!profiles.length">
+
+            </p>
+
+            <p ng-if="type == profileTypes.CUSTOMER_PROFILE" class="input">
+            </p>
+          </li>
+          <li>
+            <label for>تاریخ ایجاد:</label>
+
+            <p class="input" ng-show="profiles.length">
+              {{selectedProfile.createDate}}
+            </p>
+
+            <p class="input" ng-show="!profiles.length"></p>
+          </li>
+          <li>
+            <label>کاربر سازنده:</label>
+
+            <p class="input" ng-show="profiles.length">
+              {{selectedProfile.user}}
+            </p>
+
+            <p class="input" ng-show="!profiles.length"></p>
+          </li>
+          <li>
+            <label>توضیحات:</label>
+            <textarea class="textarea" name="description" data-ng-model="selectedProfile.des"
+                      ng-maxlength="1000" ng-show="profiles.length">
+                        </textarea>
+
+            <p class="error_message" ng-show="profileEditForm.description.$error.maxlength">
+              توضیحات پروفایل می بایست حداکثر 1000 حرف باشد.
+            </p>
+            &lt;!&ndash;  {{selectedProfile.description || 'توضیحی درج نشده است.'}}&ndash;&gt;
+            <p class="input" ng-show="!profiles.length"></p>
+          </li>
+          <li>
+            <label>تعداد گزارشات:</label>
+
+            <p class="input" ng-show="profiles.length">
+              {{selectedProfile.reportCount || 'در هیچ گزارشی استفاده نشده است.'}}
+            </p>
+
+            <p class="input" ng-show="!profiles.length"></p>
+          </li>
+          <li>
+            <label>آخرین بروزرسانی توسط:</label>
+
+            <p class="input" ng-show="profiles.length">
+              {{selectedProfile.userUpdate || '-'}}
+            </p>
+
+            <p class="input" ng-show="!profiles.length"></p>
+          </li>
+          <li>
+            <label>تاریخ آخرین بروزرسانی:</label>
+
+            <p class="input" ng-show="profiles.length">
+              {{(selectedProfile.updateDate) || '-'}}
+            </p>
+
+            <p class="input" ng-show="!profiles.length"></p>
+          </li>
+          <li class="text_left">
+            <button ng-disabled="profileEditForm.$invalid" class="btn_small"
+                    data-ng-click="saveProfileChanges(selectedProfile,profileEditForm)">
+              <img src="dist/img/save.svg" class="icon" alt="save icon" width="20" height="20"> ذخیره
+              تغییرات
+            </button>
+        </ul>
+      </form>
+    </div>
+  </fieldset>
+</section>-->
+
